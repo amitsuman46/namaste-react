@@ -5,7 +5,8 @@ import Shimmer from "./Shimmer";
 const Body = () => {
 
   const [listOfRestaurants, setListOfRestaurant] = useState([]);
-  
+  const [searchText,setSearchText] = useState("");
+  const [filterRestaurant, setFilterRestaurant] = useState([]);
   useEffect(()=>{
     fetchData();
   },[])
@@ -15,9 +16,10 @@ const Body = () => {
     
     const json = await data.json();
 
-    // console.log(json);
+    console.log(json);
     // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-      setListOfRestaurant(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+      setListOfRestaurant(json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants);
+      setFilterRestaurant(json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants);
   }
   // const listOfRestaurants = [];  key={restaurant.data.id}
   // if(listOfRestaurants.length===0){
@@ -26,6 +28,18 @@ const Body = () => {
     return listOfRestaurants.length===0 ? ( <Shimmer/> ) : (
       <div className="body">
         <div className="filter">
+        <div className="search">
+          <input type="text" className="search-box" value={searchText} onChange={(e)=>{
+            setSearchText(e.target.value)
+          }}/>
+
+          <button onClick={()=>{
+          const filteredList =   listOfRestaurants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+          console.log(filteredList);
+          setFilterRestaurant(filteredList);
+          }}>Search</button>
+
+        </div>
           <button className="filter-btn" onClick={()=>{
             const filteredList = listOfRestaurants.filter((res)=>res.info.avgRating >4)
             setListOfRestaurant(filteredList);
@@ -34,7 +48,7 @@ const Body = () => {
         </div>
        
         <div className="res-container">
-          {listOfRestaurants.map((restaurant) => (
+          {filterRestaurant.map((restaurant) => (
             <RestaurantCard key={restaurant.info.id} resData={restaurant} />
           ))}
         </div>
