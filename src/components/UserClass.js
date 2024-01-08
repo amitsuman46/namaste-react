@@ -10,8 +10,9 @@ class UserClass extends React.Component {
   }
 
   componentDidMount() {
-    console.log("this will be called after constructor and render method, similar to useEffect(cbfn,[])");
+    console.log("this will be called after constructor and render method, similar to useEffect(cbfn,[])"); 
   }
+
 
   render() {
     return (
@@ -32,3 +33,4 @@ class UserClass extends React.Component {
 }
 
 export default UserClass;
+
