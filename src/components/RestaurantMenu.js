@@ -27,10 +27,12 @@ const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
 console.log(itemCards);
   return  (
     <div className="menu">
-      <h1>{name}</h1>
-      <h3>{cuisines.join(",")} - {costForTwoMessage} - {sla.deliveryTime} Mins</h3>
-      <ul>
-        {itemCards.map((item)=> <li key={item.card.info.id}>{item.card.info.name} - Rs. {item.card.info.price/100 || item.card.info.defaultPrice/100}</li>)}
+      <h1 className="font-bold mx-3">{name}</h1>
+      <h3 className="mx-3">{cuisines.join(",")} - {costForTwoMessage} - {sla.deliveryTime} Mins</h3>
+      <ul className="flex flex-col ">
+        {itemCards.map((item)=> <li
+        className="mx-3 my-1  font-semibold text-indigo-600 border border-solid w-[280px] flex justify-center"
+        key={item.card.info.id}>{item.card.info.name} - Rs. {item.card.info.price/100 || item.card.info.defaultPrice/100}</li>)}
       </ul>
     </div>
   );
