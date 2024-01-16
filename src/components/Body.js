@@ -8,13 +8,16 @@ const Body = () => {
   const [listOfRestaurants, setListOfRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filterRestaurant, setFilterRestaurant] = useState([]);
+
+  console.log(listOfRestaurants);
+
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9505636&lng=77.7162129&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     const json = await data.json();
@@ -70,12 +73,12 @@ const Body = () => {
         </div>
         <div className=" m-4 p-4 ">
         <button
-          className="filter-btn px-2 py-2 bg-gray-200 m-4 rounded-2xl border border-solid"
+          className="filter-btn px-2 py-2 bg-gray-200 m-4 rounded-2xl border border-solid hover:bg-gray-400"
           onClick={() => {
             const filteredList = listOfRestaurants.filter(
               (res) => res.info.avgRating > 4
             );
-            setListOfRestaurant(filteredList);
+            setFilterRestaurant(filteredList);
           }}
         >
           Top Rated Restaurants
