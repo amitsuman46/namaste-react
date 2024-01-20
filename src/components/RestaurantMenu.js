@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import Shimmer from "./Shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
 
@@ -24,16 +25,21 @@ const resInfo = useRestaurantMenu(resId);
 if (resInfo === null) return <Shimmer/>
 const {name, cuisines,cloudinaryImageId,costForTwoMessage,sla} = resInfo?.cards[0]?.card?.card?.info;
 const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
-console.log(itemCards);
+// console.log(itemCards);
+console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+
+const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+  c=>c.card?.card?.["@type"] == "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+)
+console.log(categories);
   return  (
-    <div className="menu">
-      <h1 className="font-bold mx-3">{name}</h1>
-      <h3 className="mx-3">{cuisines.join(",")} - {costForTwoMessage} - {sla.deliveryTime} Mins</h3>
-      <ul className="flex flex-col ">
-        {itemCards.map((item)=> <li
-        className="mx-3 my-1  font-semibold text-indigo-600 border border-solid w-[280px] flex justify-center"
-        key={item.card.info.id}>{item.card.info.name} - Rs. {item.card.info.price/100 || item.card.info.defaultPrice/100}</li>)}
-      </ul>
+    <div className="menu text-center">
+      <h1 className="font-bold my-5">{name}</h1>
+      <h3 className="font-bold mx-3">{cuisines.join(",")} - {costForTwoMessage} - {sla.deliveryTime} Mins</h3>
+     {/*Categories Accordian */     }
+     {
+      categories.map((category)=><RestaurantCategory key={category.card.card.title} data={category.card.card}/>)
+     }
     </div>
   );
 };
