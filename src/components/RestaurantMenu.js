@@ -11,7 +11,7 @@ const RestaurantMenu = () => {
 
 const {resId} = useParams();
 const resInfo = useRestaurantMenu(resId);
-
+const [showIndex, setShowIndex] = useState(2);
 // useEffect(()=>{
 //     fetchMenu();
 // },[]);
@@ -38,7 +38,10 @@ console.log(categories);
       <h3 className="font-bold mx-3">{cuisines.join(",")} - {costForTwoMessage} - {sla.deliveryTime} Mins</h3>
      {/*Categories Accordian */     }
      {
-      categories.map((category)=><RestaurantCategory key={category.card.card.title} data={category.card.card}/>)
+      categories.map((category,index)=><RestaurantCategory key={category.card.card.title} data={category.card.card}
+      showItems={index==showIndex && true} 
+      setShowIndex = {()=> setShowIndex(index)}
+      />)
      }
     </div>
   );
