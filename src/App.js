@@ -7,6 +7,8 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 //464509
 //chunking //code splitting //dynamic bundling // lazy loading //on demand loading
 
@@ -25,12 +27,14 @@ const AppLayout = () => {
    },[])
 
   return (
+    <Provider store={appStore}>
     <UserContext.Provider value={{loggedInUser:userName, setUserName}}>
     <div className="app">
       <Header />
       <Outlet /> 
     </div>
     </UserContext.Provider>
+    </Provider>
   );
 };
 //outlet will be filled with children according to the path 
