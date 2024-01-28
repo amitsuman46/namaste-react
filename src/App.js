@@ -1,4 +1,4 @@
-import React,{lazy,Suspense} from "react";
+import React,{lazy,Suspense, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
-
+import UserContext from "./utils/UserContext";
 //464509
 //chunking //code splitting //dynamic bundling // lazy loading //on demand loading
 
@@ -14,11 +14,23 @@ const Grocery = lazy(()=>import('./components/Grocery')); //lazy loading
 const About = lazy(()=>import('./components/About'));
 
 const AppLayout = () => {
+ 
+   const [userName, setUserName] = useState();
+
+   useEffect(()=>{
+    const data = {
+      name: "Amit Suman",
+    };
+    setUserName(data.name);
+   },[])
+
   return (
+    <UserContext.Provider value={{loggedInUser:userName, setUserName}}>
     <div className="app">
       <Header />
       <Outlet /> 
     </div>
+    </UserContext.Provider>
   );
 };
 //outlet will be filled with children according to the path 

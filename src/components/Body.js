@@ -1,15 +1,15 @@
-import RestaurantCard,{withPromotedLabel} from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 // import resList from "../utils/mockData";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filterRestaurant, setFilterRestaurant] = useState([]);
-
-
+  const { setUserName, loggedInUser } = useContext(UserContext);
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   console.log(listOfRestaurants);
@@ -47,6 +47,7 @@ const Body = () => {
   // if(listOfRestaurants.length===0){
   //   return <Shimmer/>
   // }
+
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -62,7 +63,8 @@ const Body = () => {
             }}
           />
 
-          <button className="px-2 py-2 bg-green-200 m-4 rounded-2xl border border-solid"
+          <button
+            className="px-2 py-2 bg-green-200 m-4 rounded-2xl border border-solid"
             onClick={() => {
               const filteredList = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -75,19 +77,26 @@ const Body = () => {
           </button>
         </div>
         <div className=" m-4 p-4 ">
-        <button
-          className="filter-btn px-2 py-2 bg-gray-200 m-4 rounded-2xl border border-solid hover:bg-gray-400"
-          onClick={() => {
-            const filteredList = listOfRestaurants.filter(
-              (res) => res.info.avgRating > 4
-            );
-            setFilterRestaurant(filteredList);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+          <button
+            className="filter-btn px-2 py-2 bg-gray-200 m-4 rounded-2xl border border-solid hover:bg-gray-400"
+            onClick={() => {
+              const filteredList = listOfRestaurants.filter(
+                (res) => res.info.avgRating > 4
+              );
+              setFilterRestaurant(filteredList);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
         </div>
-       
+        <div className=" m-4 p-4 ">
+          <label>User Name</label>
+          <input
+            className="border border-black p-2"
+            onChange={(e) => setUserName(e.target.value)}
+            value={ loggedInUser }
+          />
+        </div>
       </div>
 
       <div className="res-container flex flex-wrap">
@@ -96,10 +105,11 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            {
-              (restaurant.info.avgRating >4.3 ) ? <RestaurantCardPromoted resData={restaurant}/> : <RestaurantCard resData={restaurant} />
-            }
-           
+            {restaurant.info.avgRating > 4.3 ? (
+              <RestaurantCardPromoted resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
