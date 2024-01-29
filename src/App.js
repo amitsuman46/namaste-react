@@ -9,6 +9,7 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 //464509
 //chunking //code splitting //dynamic bundling // lazy loading //on demand loading
 
@@ -60,6 +61,9 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurants/:resId" , element: <RestaurantMenu/>
+      },
+      {
+        path: "/cart", element: <Cart/>
       }
     ],
     errorElement: <Error />,
