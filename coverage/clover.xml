@@ -1,16 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1706872000095" clover="3.2.0">
-  <project timestamp="1706872000095" name="All files">
-    <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2" elements="6" coveredelements="6" complexity="0" loc="4" ncloc="4" packages="1" files="2" classes="2"/>
-    <file name="Contact.js" path="C:\Users\amit.suman\Desktop\Namaste-React course\namaste-react\src\components\Contact.js">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="4" count="4" type="stmt"/>
-    </file>
-    <file name="sum.js" path="C:\Users\amit.suman\Desktop\Namaste-React course\namaste-react\src\components\sum.js">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="1" count="1" type="stmt"/>
-      <line num="2" count="1" type="stmt"/>
-    </file>
+<coverage generated="1706954659538" clover="3.2.0">
+  <project timestamp="1706954659538" name="All files">
+    <metrics statements="67" coveredstatements="52" conditionals="10" coveredconditionals="7" methods="26" coveredmethods="15" elements="103" coveredelements="74" complexity="0" loc="67" ncloc="67" packages="2" files="11" classes="11"/>
+    <package name="components">
+      <metrics statements="49" coveredstatements="39" conditionals="10" coveredconditionals="7" methods="19" coveredmethods="13"/>
+      <file name="Body.js" path="C:\Users\amits\OneDrive\Desktop\React Course\Namaste-react-course\namaste-react\src\components\Body.js">
+        <metrics statements="29" coveredstatements="19" conditionals="6" coveredconditionals="5" methods="10" coveredmethods="4"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="38" count="4" type="stmt"/>
+        <line num="40" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="51" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="105" count="18" type="stmt"/>
+      </file>
+      <file name="Contact.js" path="C:\Users\amits\OneDrive\Desktop\React Course\Namaste-react-course\namaste-react\src\components\Contact.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+      </file>
+      <file name="Header.js" path="C:\Users\amits\OneDrive\Desktop\React Course\Namaste-react-course\namaste-react\src\components\Header.js">
+        <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="14" count="9" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="42" count="1" type="cond" truecount="1" falsecount="1"/>
+      </file>
+      <file name="RestaurantCard.js" path="C:\Users\amits\OneDrive\Desktop\React Course\Namaste-react-course\namaste-react\src\components\RestaurantCard.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="19" type="stmt"/>
+        <line num="7" count="19" type="stmt"/>
+        <line num="16" count="19" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
+        <line num="37" count="6" type="stmt"/>
+      </file>
+      <file name="Shimmer.js" path="C:\Users\amits\OneDrive\Desktop\React Course\Namaste-react-course\namaste-react\src\components\Shimmer.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+      <file name="sum.js" path="C:\Users\amits\OneDrive\Desktop\React Course\Namaste-react-course\namaste-react\src\components\sum.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="18" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="2"/>
+      <file name="UserContext.js" path="C:\Users\amits\OneDrive\Desktop\React Course\Namaste-react-course\namaste-react\src\utils\UserContext.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+      </file>
+      <file name="appStore.js" path="C:\Users\amits\OneDrive\Desktop\React Course\Namaste-react-course\namaste-react\src\utils\appStore.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+      <file name="cartSlice.js" path="C:\Users\amits\OneDrive\Desktop\React Course\Namaste-react-course\namaste-react\src\utils\cartSlice.js">
+        <metrics statements="5" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+      </file>
+      <file name="constants.js" path="C:\Users\amits\OneDrive\Desktop\React Course\Namaste-react-course\namaste-react\src\utils\constants.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+      </file>
+      <file name="useOnlineStatus.js" path="C:\Users\amits\OneDrive\Desktop\React Course\Namaste-react-course\namaste-react\src\utils\useOnlineStatus.js">
+        <metrics statements="8" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="9" type="stmt"/>
+        <line num="6" count="9" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="16" count="9" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>
